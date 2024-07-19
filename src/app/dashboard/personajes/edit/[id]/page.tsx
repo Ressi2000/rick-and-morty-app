@@ -43,26 +43,24 @@ const EditCharacterPage = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-grow">
-        <Sidebar />
-        <main className="flex-grow p-4 bg-slate-800 bg-opacity-40 backdrop-blur-md">
-          <div className="flex flex-col w-full h-full px-3 py-4 md:px-2 bg-gray-800 bg-opacity-50 text-white border border-y-rose-50">
-            <div className="flex flex-col items-center justify-center min-h-screen">
-              <div className="glassmorphism p-8 w-[500px] mx-auto text-center mb-6">
-                <Image
-                  src="/customers/ram-logo.png"
-                  alt="Rick and Morty Logo"
-                  width={450}
-                  height={150}
-                  className="object-contain mb-4"
-                />
-                <EditCharacterForm character={character} onCharacterUpdated={handleCharacterUpdated} />
-              </div>
+    <div className="flex flex-col min-h-screen md:flex-row">
+      <Sidebar />
+      <main className="flex-grow p-4 bg-slate-800 bg-opacity-40 backdrop-blur-md">
+        <div className="flex flex-col w-full h-full px-3 py-4 md:px-2 bg-gray-800 bg-opacity-50 text-white border border-y-rose-50">
+          <div className="flex flex-col items-center justify-center min-h-screen">
+            <div className="glassmorphism p-8 w-full max-w-md mx-auto text-center mb-6">
+              <Image
+                src="/customers/ram-logo.png"
+                alt="Rick and Morty Logo"
+                width={450}
+                height={150}
+                className="object-contain mb-4"
+              />
+              <EditCharacterForm character={character} onCharacterUpdated={handleCharacterUpdated} />
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };

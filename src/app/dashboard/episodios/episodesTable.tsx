@@ -59,14 +59,15 @@ const EpisodesTable: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="mb-4 flex space-x-2">
+    <div className="w-full overflow-x-auto">
+      <div className="mb-4 flex flex-wrap gap-2">
         <Input
           type="text"
           name="name"
           placeholder="Nombre del Episodio"
           value={filters.name}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
         <Input
           type="text"
@@ -74,9 +75,10 @@ const EpisodesTable: React.FC = () => {
           placeholder="Código del Episodio"
           value={filters.episode}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
       </div>
-      <Table>
+      <Table className="min-w-full">
         <TableHeader>
           <TableRow>
             <TableHead className="text-white font-bold">Nombre</TableHead>
@@ -109,6 +111,7 @@ const EpisodesTable: React.FC = () => {
         totalPages={totalPageCount}
         currentPage={currentPage}
         onPageChange={handlePageChange}
+        className="mt-4"
       />
     </div>
   );

@@ -83,14 +83,15 @@ const CharactersTable = () => {
   };
 
   return (
-    <div>
-      <div className="mb-4 flex space-x-2">
+    <div className="w-full overflow-x-auto">
+      <div className="mb-4 flex flex-wrap gap-2">
         <Input
           type="text"
           name="name"
           placeholder="Nombre"
           value={filters.name}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
         <Input
           type="text"
@@ -98,6 +99,7 @@ const CharactersTable = () => {
           placeholder="Especie"
           value={filters.species}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
         <Input
           type="text"
@@ -105,6 +107,7 @@ const CharactersTable = () => {
           placeholder="Tipo"
           value={filters.type}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
         <Input
           type="text"
@@ -112,9 +115,10 @@ const CharactersTable = () => {
           placeholder="Género"
           value={filters.gender}
           onChange={handleFilterChange}
+          className="w-full md:w-auto"
         />
       </div>
-      <Table>
+      <Table className="min-w-full">
         <TableHeader>
           <TableRow>
             <TableHead className="text-white font-bold">Imagen</TableHead>
@@ -162,6 +166,7 @@ const CharactersTable = () => {
         totalPages={totalPageCount}
         currentPage={currentPage}
         onPageChange={handlePageChange}
+        className="mt-4"
       />
       {selectedCharacter && (
         <ChangeStatusModal
