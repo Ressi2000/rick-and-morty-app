@@ -15,6 +15,8 @@ export default function Navbar() {
     // Borrar la información del localStorage
     localStorage.removeItem("username");
     localStorage.removeItem("password");
+    localStorage.removeItem("characters");
+    localStorage.removeItem("episodes");
 
     // Borrar las cookies
     destroyCookie(null, 'isLoggedIn', { path: '/' });
