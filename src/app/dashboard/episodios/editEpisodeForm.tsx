@@ -37,8 +37,8 @@ export default function EditEpisodeForm({ episode, onEpisodeUpdated }: EditEpiso
 
     try {
       const updatedEpisode: Episode = { ...episode, name, episode: episodeCode, air_date: airDate };
-      await updateEpisode(updatedEpisode); // Actualiza el episodio
-      onEpisodeUpdated(updatedEpisode); // Llama a la función con el episodio actualizado
+      await updateEpisode(updatedEpisode); 
+      onEpisodeUpdated(updatedEpisode); 
       setError(null);
       toast({
         title: 'Éxito',

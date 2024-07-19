@@ -27,13 +27,10 @@ export default function LoginForm() {
             });
             return;
         }
-
-        // Simulación de validación de credenciales
         const storedUser = localStorage.getItem("username");
         const storedPassword = localStorage.getItem("password");
 
         if (username === storedUser && password === storedPassword) {
-            // Simulamos inicio de sesión exitoso
 
             setCookie(null, 'isLoggedIn', 'true', {
                 maxAge: 30 * 24 * 60 * 60, // 30 días

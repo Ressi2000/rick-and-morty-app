@@ -60,7 +60,6 @@ export const updateCharacter = async (updatedCharacter) => {
   }
 };
 
-// Función para obtener un personaje por su ID desde localStorage
 export const fetchCharacterById = async (id) => {
   try {
     // Obtener los personajes del localStorage
@@ -76,6 +75,6 @@ export const fetchCharacterById = async (id) => {
     return character;
   } catch (error) {
     console.error('Error fetching character by ID:', error);
-    throw error; // Propaga el error para manejarlo en el componente que llama a esta función
+    throw error; 
   }
 };

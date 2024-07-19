@@ -6,6 +6,7 @@ import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/toaster"
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
@@ -25,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <link rel="icon" href="/customers/logo.png" />
+      <Head>
+        <link rel="icon" href="/customers/logo.png" />
+      </Head>
       <body
         className={cn(
           "min-h-screen flex flex-col font-sans antialiased",
@@ -38,10 +41,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar/>
+          <Navbar />
           <main className="">
             {children}
-            </main>
+          </main>
           <Toaster />
         </ThemeProvider>
       </body>

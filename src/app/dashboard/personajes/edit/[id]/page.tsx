@@ -22,7 +22,7 @@ const EditCharacterPage = () => {
         }
       } catch (error) {
         console.error("Error fetching character:", error);
-        router.push('/'); // Redirecciona si hay un error
+        router.push('/'); 
       }
     };
 
@@ -32,7 +32,7 @@ const EditCharacterPage = () => {
   const handleCharacterUpdated = async (updatedCharacter: Character) => {
     try {
       await updateCharacter(updatedCharacter);
-      router.push('/dashboard/personajes'); // Redirecciona a la lista de personajes
+      router.push('/dashboard/personajes'); 
     } catch (error) {
       console.error("Error updating character:", error);
     }

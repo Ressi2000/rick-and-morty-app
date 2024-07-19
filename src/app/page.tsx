@@ -7,9 +7,9 @@ export default function HomePage() {
       {/* Logo de Rick y Morty */}
       <div className="glassmorphism p-6 max-w-sm mx-auto text-center">
         <Image
-          src="/customers/ram-logo.png"  // Asegúrate de que el logo esté en la carpeta public
+          src="/customers/ram-logo.png" 
           alt="Rick and Morty Logo"
-          width={400}  // Ajusta el tamaño según lo necesites
+          width={400} 
           height={200}
           className="object-contain mb-4"
         />

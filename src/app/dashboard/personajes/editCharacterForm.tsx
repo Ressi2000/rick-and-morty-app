@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { updateCharacter } from '../../service/api-character';
 import Link from 'next/link';
 import { useToast } from '@/components/ui/use-toast';
-import { Character } from '@/types/character'; // Asegúrate de importar el tipo Character
+import { Character } from '@/types/character'; 
 
 interface EditCharacterFormProps {
-  character: Character; // Usa el tipo Character aquí
-  onCharacterUpdated: (updatedCharacter: Character) => void; // Actualiza la firma de la función
+  character: Character; 
+  onCharacterUpdated: (updatedCharacter: Character) => void; 
 }
 
 export default function EditCharacterForm({ character, onCharacterUpdated }: EditCharacterFormProps) {
@@ -39,8 +39,8 @@ export default function EditCharacterForm({ character, onCharacterUpdated }: Edi
 
     try {
       const updatedCharacter: Character = { ...character, name, species, type, gender };
-      await updateCharacter(updatedCharacter); // Actualiza el personaje
-      onCharacterUpdated(updatedCharacter); // Llama a la función con el personaje actualizado
+      await updateCharacter(updatedCharacter); 
+      onCharacterUpdated(updatedCharacter); 
       setError(null);
       toast({
         title: 'Éxito',

@@ -1,11 +1,11 @@
 "use client";
 import Sidebar from '@/components/sidebar';
 import React, { useEffect, useState } from 'react';
-import EditEpisodeForm from '../../editEpisodeForm'; // Importa el formulario de edición de episodios
+import EditEpisodeForm from '../../editEpisodeForm'; 
 import Image from 'next/image';
-import { Episode } from '@/types/episodes'; // Asegúrate de importar el tipo Episode
+import { Episode } from '@/types/episodes'; 
 import { useParams, useRouter } from 'next/navigation';
-import { updateEpisode, fetchEpisodeById } from '@/app/service/api-episodes'; // Usa las funciones para episodios
+import { updateEpisode, fetchEpisodeById } from '@/app/service/api-episodes'; 
 
 const EditEpisodePage = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ const EditEpisodePage = () => {
   const handleEpisodeUpdated = async (updatedEpisode: Episode) => {
     try {
       await updateEpisode(updatedEpisode);
-      router.push('/dashboard/episodios'); // Redirecciona a la lista de episodios
+      router.push('/dashboard/episodios');
     } catch (error) {
       console.error("Error updating episode:", error);
     }
