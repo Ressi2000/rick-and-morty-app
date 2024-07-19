@@ -1,21 +1,19 @@
-// src/components/ui/pagination.tsx
+import * as React from "react";
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ButtonProps, buttonVariants } from "@/components/ui/button";
 
-import * as React from "react"
-import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-import { ButtonProps, buttonVariants } from "@/components/ui/button"
-
+// Componente principal de paginación
 const Pagination = ({
   totalPages,
   currentPage,
   onPageChange,
   className,
 }: {
-  totalPages: number
-  currentPage: number
-  onPageChange: (page: number) => void
-  className?: string
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+  className?: string;
 }) => {
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -76,11 +74,12 @@ const Pagination = ({
         disabled={currentPage === totalPages}
       />
     </nav>
-  )
-}
+  );
+};
 
-Pagination.displayName = "Pagination"
+Pagination.displayName = "Pagination";
 
+// Componente para el contenido de la paginación
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<"ul">
@@ -90,22 +89,26 @@ const PaginationContent = React.forwardRef<
     className={cn("flex flex-row items-center gap-1", className)}
     {...props}
   />
-))
-PaginationContent.displayName = "PaginationContent"
+));
+PaginationContent.displayName = "PaginationContent";
 
+// Componente para los ítems de la paginación
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
 >(({ className, ...props }, ref) => (
   <li ref={ref} className={cn("cursor-pointer", className)} {...props} />
-))
-PaginationItem.displayName = "PaginationItem"
+));
+PaginationItem.displayName = "PaginationItem";
 
+// Tipo para las propiedades del enlace de paginación
 type PaginationLinkProps = {
-  isActive?: boolean
+  isActive?: boolean;
+  disabled?: boolean;
 } & Pick<ButtonProps, "size"> &
-  React.ComponentProps<"a">
+  React.ComponentProps<"a">;
 
+// Componente para el enlace de paginación
 const PaginationLink = ({
   className,
   isActive,
@@ -123,11 +126,15 @@ const PaginationLink = ({
       className
     )}
     {...props}
-    disabled={disabled}
+    // Manejo del estado deshabilitado
+    tabIndex={disabled ? -1 : undefined}
+    aria-disabled={disabled}
+    onClick={disabled ? undefined : props.onClick}
   />
-)
-PaginationLink.displayName = "PaginationLink"
+);
+PaginationLink.displayName = "PaginationLink";
 
+// Componente para el botón de página anterior
 const PaginationPrevious = ({
   className,
   ...props
@@ -141,9 +148,10 @@ const PaginationPrevious = ({
     <ChevronLeft className="h-4 w-4 cursor-pointer" />
     <span className="cursor-pointer">Anterior</span>
   </PaginationLink>
-)
-PaginationPrevious.displayName = "PaginationPrevious"
+);
+PaginationPrevious.displayName = "PaginationPrevious";
 
+// Componente para el botón de página siguiente
 const PaginationNext = ({
   className,
   ...props
@@ -157,9 +165,10 @@ const PaginationNext = ({
     <span className="cursor-pointer">Siguiente</span>
     <ChevronRight className="h-4 w-4 cursor-pointer" />
   </PaginationLink>
-)
-PaginationNext.displayName = "PaginationNext"
+);
+PaginationNext.displayName = "PaginationNext";
 
+// Componente para los puntos suspensivos de la paginación
 const PaginationEllipsis = ({
   className,
   ...props
@@ -172,8 +181,8 @@ const PaginationEllipsis = ({
     <MoreHorizontal className="h-4 w-4" />
     <span className="sr-only">More pages</span>
   </span>
-)
-PaginationEllipsis.displayName = "PaginationEllipsis"
+);
+PaginationEllipsis.displayName = "PaginationEllipsis";
 
 export {
   Pagination,
@@ -183,4 +192,4 @@ export {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-}
+};
